@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "hexlet-code"
+version = "0.1.0"
+description = ""
+authors = ["sidnnov <sidnnov@gmail.com>"]
+readme = "README.md"
+packages = [{include = "gendiff"}]
+classifiers = [
+    "Topic :: Games/Entertainment :: Real Time Strategy",
+]
+repository = "https://github.com/sidnnov/python-project-50"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
