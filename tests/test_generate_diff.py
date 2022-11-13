@@ -1,4 +1,4 @@
-from gendiff import generate_diff
+from gendiff.generate import generate_diff
 
 PUTH_FILE1 = 'tests/fixtures/file1.json'
 PUTH_FILE2 = 'tests/fixtures/file2.json'
