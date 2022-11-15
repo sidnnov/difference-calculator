@@ -6,3 +6,6 @@
 
 #### Diff json:
 [![asciicast](https://asciinema.org/a/537298.svg)](https://asciinema.org/a/537298)
+
+#### Diff yaml:
+[![asciicast](https://asciinema.org/a/537787.svg)](https://asciinema.org/a/537787)
