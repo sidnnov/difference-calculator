@@ -8,8 +8,12 @@ def parser(puth_file):
             dictionary = json.loads(file.read())
         if puth_file.endswith('.yaml') or puth_file.endswith('.yml'):
             dictionary = yaml.load(file, Loader=yaml.Loader)
-    sorted_dict = dict(sorted(dictionary.items()))
-    for key, val in sorted_dict.items():
-        if type(val) == bool:
-            sorted_dict[key] = str(val).lower()
-    return sorted_dict
+    # sorted_dict = dict(sorted(dictionary.items()))
+    # for key, val in sorted_dict.items():
+    #     if type(val) == bool:
+    #         sorted_dict[key] = str(val).lower()
+    return dictionary
+
+
+# puth_file1 = "tests/fixtures/hard_file1.json"
+# print(parser(puth_file1))
