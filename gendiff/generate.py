@@ -1,5 +1,6 @@
 from gendiff.parser import parser
 from gendiff.format.stylish import stylish
+from gendiff.format.plain import plain
 
 
 def constructing_diff(dict_1, dict_2):
@@ -51,6 +52,8 @@ def constructing_diff(dict_1, dict_2):
 
 
 def generate_diff(puth_file1, puth_file2, format=stylish):
+    if format == 'plain':
+        format = plain
     dict_1 = parser(puth_file1)
     dict_2 = parser(puth_file2)
     return format(constructing_diff(dict_1, dict_2))
