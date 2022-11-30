@@ -1,7 +1,7 @@
 from gendiff import generate_diff
 from gendiff.parser import parser
 from gendiff.format.plain import plain
-
+from gendiff.format.json_form import json
 
 PUTH_JSON_FILE1 = "tests/fixtures/file1.json"
 PUTH_JSON_FILE2 = "tests/fixtures/file2.json"
@@ -54,3 +54,5 @@ def test_generate_diff():
         PUTH_HARD_JSON_FILE1, PUTH_HARD_JSON_FILE2, plain) == expected[2]
     assert generate_diff(
         PUTH_HARD_YAML_FILE1, PUTH_HARD_YAML_FILE2, plain) == expected[2]
+    assert generate_diff(
+        PUTH_HARD_YAML_FILE1, PUTH_HARD_YAML_FILE2, json) == expected[3]

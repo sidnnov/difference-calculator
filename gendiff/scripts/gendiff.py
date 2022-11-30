@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 from gendiff.generate import generate_diff
-from gendiff.format.stylish import stylish
 
 
 def main():
     parser = argparse.ArgumentParser(
+        usage='%(prog)s [options] <filepath1> <filepath2>',
         description="Compares two configuration files and shows a difference."
     )
     parser.add_argument("first_file")
@@ -15,7 +15,7 @@ def main():
         "-f",
         "--format",
         help="set format of output",
-        default=stylish
+        default='stylish'
     )
     agrs = parser.parse_args()
     print(generate_diff(agrs.first_file, agrs.second_file, agrs.format))

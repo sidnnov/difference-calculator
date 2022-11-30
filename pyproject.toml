@@ -6,7 +6,7 @@ authors = ["sidnnov <sidnnov@gmail.com>"]
 readme = "README.md"
 packages = [{include = "gendiff"}]
 classifiers = [
-    "Topic :: Games/Entertainment :: Real Time Strategy",
+    "ENVIRONMENT :: CONSOLE :: PROGRAMMING LANGUAGE :: PYTHON :: TOPIC :: UTILITIES",
 ]
 repository = "https://github.com/sidnnov/python-project-50"
 
