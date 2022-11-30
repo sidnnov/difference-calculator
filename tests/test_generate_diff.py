@@ -55,4 +55,6 @@ def test_generate_diff():
     assert generate_diff(
         PUTH_HARD_YAML_FILE1, PUTH_HARD_YAML_FILE2, plain) == expected[2]
     assert generate_diff(
+        PUTH_HARD_JSON_FILE1, PUTH_HARD_JSON_FILE2, json) == expected[3]    
+    assert generate_diff(
         PUTH_HARD_YAML_FILE1, PUTH_HARD_YAML_FILE2, json) == expected[3]
