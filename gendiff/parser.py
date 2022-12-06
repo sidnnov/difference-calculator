@@ -2,10 +2,20 @@ import json
 import yaml
 
 
-def parser(puth_file):
-    with open(puth_file) as file:
-        if puth_file.endswith('.json'):
-            dictionary = json.loads(file.read())
-        if puth_file.endswith('.yaml') or puth_file.endswith('.yml'):
-            dictionary = yaml.load(file, Loader=yaml.Loader)
+def read_file(file_path):
+    with open(file_path) as file:
+        line = file.read()
+    if file_path.endswith('.json'):
+        format = 'json'
+    if file_path.endswith('.yaml') or file_path.endswith('.yml'):
+        format = 'yaml'
+    return format, line
+
+
+def parser(file_path):
+    format, line = read_file(file_path)
+    if format == 'json':
+        dictionary = json.loads(line)
+    if format == 'yaml':
+        dictionary = yaml.load(line, Loader=yaml.Loader)
     return dictionary

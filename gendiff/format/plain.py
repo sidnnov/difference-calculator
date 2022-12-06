@@ -1,7 +1,7 @@
 from gendiff.format.get_str import get_str_from_value
 
 
-def check_composite(value):
+def conversion(value):
     if isinstance(value, str):
         value = f"'{value}'"
     elif isinstance(value, dict):
@@ -15,20 +15,20 @@ def plain(data, key=""):
     result = []
 
     for value in data:
-        puth = f"{key}{value.get('key')}"
+        path = f"{key}{value.get('key')}"
         if value["action"] == "nested":
-            result.append(plain(value["children"], puth + "."))
+            result.append(plain(value["children"], path + "."))
         elif value["action"] == "added":
             result.append(
-                f"Property '{puth}' was added with value: "
-                f"{check_composite(value['val'])}"
+                f"Property '{path}' was added with value: "
+                f"{conversion(value['val'])}"
             )
         elif value["action"] == "deleted":
-            result.append(f"Property '{puth}' was removed")
+            result.append(f"Property '{path}' was removed")
         elif value["action"] == "changed":
             result.append(
-                f"Property '{puth}' was updated. "
-                f"From {check_composite(value['old'])} "
-                f"to {check_composite(value['new'])}"
+                f"Property '{path}' was updated. "
+                f"From {conversion(value['old'])} "
+                f"to {conversion(value['new'])}"
             )
     return "\n".join(result)

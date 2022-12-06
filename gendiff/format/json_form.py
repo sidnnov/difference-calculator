@@ -1,5 +1,8 @@
-import json as orogin_json
+import json as origin_json
+
+
+INDENT = 2
 
 
 def json(data):
-    return orogin_json.dumps(data, indent=2)
+    return origin_json.dumps(data, indent=INDENT)

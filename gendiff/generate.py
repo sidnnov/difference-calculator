@@ -4,7 +4,10 @@ from gendiff.format.plain import plain
 from gendiff.format.json_form import json
 
 
-def constructing_diff(dict_1, dict_2):
+FORMAT = {'stylish': stylish, 'plain': plain, 'json': json}
+
+
+def build_diff(dict_1, dict_2):
     keys = dict_1.keys() | dict_2.keys()
     result = []
     for key in sorted(keys):
@@ -29,7 +32,7 @@ def constructing_diff(dict_1, dict_2):
                 {
                     "key": key,
                     "action": "nested",
-                    "children": constructing_diff(dict_1[key], dict_2[key]),
+                    "children": build_diff(dict_1[key], dict_2[key]),
                 }
             )
         elif dict_1[key] == dict_2[key]:
@@ -52,13 +55,7 @@ def constructing_diff(dict_1, dict_2):
     return result
 
 
-def generate_diff(puth_file1, puth_file2, format='stylish'):
-    if format == 'plain':
-        format = plain
-    if format == 'json':
-        format = json
-    if format == 'stylish':
-        format = stylish
-    dict_1 = parser(puth_file1)
-    dict_2 = parser(puth_file2)
-    return format(constructing_diff(dict_1, dict_2))
+def generate_diff(file_path1, file_path2, format='stylish'):
+    dict_1 = parser(file_path1)
+    dict_2 = parser(file_path2)
+    return FORMAT[format](build_diff(dict_1, dict_2))
