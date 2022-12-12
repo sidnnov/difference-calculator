@@ -4,8 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
         # install poetry
       - name: Install dependencies
         run: |
@@ -15,10 +18,9 @@ jobs:
         run: |
           make check
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v2.7.4
-        if: github.ref_name == 'main'
+        uses: paambaati/codeclimate-action@v3.2.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST }}
         with:
           coverageCommand: make test-coverage
           debug: true
