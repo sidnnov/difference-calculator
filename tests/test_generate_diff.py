@@ -1,6 +1,6 @@
 import pytest
 from gendiff import generate_diff
-from gendiff.parser import parse
+# from gendiff.parser import parse
 
 
 FILE_JSON_PATH1 = 'tests/fixtures/file1.json'
