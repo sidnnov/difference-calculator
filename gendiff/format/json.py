@@ -1,7 +1,7 @@
 import json as origin_json
 
 
-INDENT = 2
+INDENT = 4
 
 
 def json(data):

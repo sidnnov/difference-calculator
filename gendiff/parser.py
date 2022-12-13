@@ -9,9 +9,10 @@ def get_file_format(file_path):
 
 
 def read_file(file_path):
+    file_format = get_file_format(file_path)
     with open(file_path) as file:
         content = file.read()
-    return content
+    return content, file_format
 
 
 def parse(content, file_format):
